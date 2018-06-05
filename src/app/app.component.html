@@ -1,17 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>{{title}} for {{month}}/{{day}}/{{year}}</h1>
+  <h1>{{title}}</h1>
   <h3>{{currentFocus}}</h3>
 </div>
-<h2>Here are some list items to get started: </h2>
+<h2>Recipes:</h2>
+  <h4>entered {{month}}/{{day}}/{{year}}</h4>
 <ol>
-  <li *ngFor="let currentRecipe of recipes">{{currentRecipe.name}}</li>
-  <ul>
-    <li
-      *ngFor="let currentRecipe of recipes">{{currentRecipe.description}}
+  <li *ngFor="let currentRecipe of recipes">
+    <ul>
+      <li>{{currentRecipe.name}}</li>
+      <li>Ingredients:
+      <ul *ngFor="let currentIngredient of currentRecipe.ingredients">
+        <li>{{currentIngredient.item}}</li>
+      </ul>
     </li>
-    <li
-      *ngFor="let currentRecipe of recipes">{{currentRecipe.ingredients}}
-    </li>
-  </ul>
+      <li>{{currentRecipe.description}}</li>
+    </ul>
+    <br>
+  </li>
 </ol>
